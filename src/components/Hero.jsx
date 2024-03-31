@@ -14,10 +14,13 @@ const Hero = () => {
       </div>
 
       <div className="container">
-        <h1 className="text-white pt-20 font-bold text-[72px] max-w-[820px]">
+        <h1 className="text-white pt-[100px] md:pt-20 font-bold text-[28px] xs:text-[35px] sm:text-[42px] md:text-[50px] lg:text-[72px] md:max-w-[650px] lg:max-w-[820px]">
           Amazing Discounts on Garden Products!
         </h1>
-        <Button text="Check out" extraClassName="mt-10 mb-[200px]" />
+        <Button
+          text="Check out"
+          extraClassName="mt-10 mb-[140px] md:mb-[200px]"
+        />
       </div>
     </section>
   );

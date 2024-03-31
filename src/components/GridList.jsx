@@ -1,0 +1,41 @@
+import { Link } from "react-router-dom";
+
+const GridList = ({ list, extra }) => {
+  return (
+    <ul
+      className={`grid-list grid gap-y-6 gap-4 justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ${extra}`}
+    >
+      {list.map((item) => {
+        return (
+          <li
+            key={item.name}
+            className="category w-[300px] xs:w-[316px] h-[380px] md:h-[420px] duration-300 "
+            style={{ position: "relative" }}
+          >
+            <Link
+              to={item.url}
+              className="flex w-full h-full flex-col gap-4 items-center"
+            >
+              <div className="relative duration-300 hover:after:opacity-50 rounded-[6px] img w-full h-[350px] overflow-hidden after:content[''] after:duration-300 after:absolute after:block after:left-0 after:top-0 after:w-full after:h-full after:bg-black after:opacity-0">
+                <img
+                  className="relative"
+                  src={item.href}
+                  alt={item.name}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                  }}
+                />
+              </div>
+              <h3 className="text-xl text-center max-w-[315px]">{item.name}</h3>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+export default GridList;
