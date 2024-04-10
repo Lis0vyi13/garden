@@ -13,7 +13,6 @@ import gargen_pitchfork from "/products/gargen-pitchfork.png";
 import gloves from "/products/gloves.png";
 import hacksaw from "/products/hacksaw.png";
 import souvenir_thermometer from "/products/souvenir-thermometer.png";
-import telegram from "/telegram.svg";
 
 export const navLinks = [
   { name: "Main Page", href: "/" },
@@ -115,17 +114,4 @@ export const products = [
     discount: 0.25,
     url: "/cat",
   },
-];
-
-export const contacts = [
-  {
-    title: "Phone",
-    text: "+38 (068) 752-62-41",
-  },
-  { title: "Socials", text: telegram },
-  {
-    title: "Address",
-    text: "Sobornosti street, 42, Poltava, Poltava region, 36000",
-  },
-  { title: "Working Hours", text: "24 hours a day" },
 ];
