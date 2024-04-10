@@ -4,7 +4,7 @@ import formImg from "/form-content-img.png";
 
 const Discount = () => {
   return (
-    <section className="discount mb-20">
+    <section className="discount">
       <div className="container">
         <div className="discount-content relative flex flex-col p-6 pb-10 bg-gradient-to-r from-linearGreen1 to-linearGreen2 rounded-xl">
           <Title

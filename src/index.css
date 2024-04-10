@@ -34,3 +34,7 @@ input[type="number"] {
   appearance: none;
 }
 
+input:focus-within + span {
+  color: #ff0000;
+}
+

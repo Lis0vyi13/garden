@@ -29,7 +29,9 @@ const GridList = ({ list, extra }) => {
                   }}
                 />
               </div>
-              <h3 className="text-xl text-center max-w-[315px]">{item.name}</h3>
+              <h3 className="text-xl duration-100 hover:text-green text-center max-w-[315px]">
+                {item.name}
+              </h3>
             </Link>
           </li>
         );

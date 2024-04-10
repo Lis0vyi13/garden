@@ -1,7 +1,8 @@
 import Hero from "../components/Hero";
 import Categories from "../components/Categories";
 import Discount from "../components/Discount";
-import Modal from "../components/Modal";
+import Sale from "../components/Sale";
+import Contact from "../components/Contact";
 
 const MainPage = () => {
   return (
@@ -9,7 +10,8 @@ const MainPage = () => {
       <Hero />
       <Categories />
       <Discount />
-      <Modal type="successOrder" />
+      <Sale />
+      <Contact />
     </section>
   );
 };

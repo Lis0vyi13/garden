@@ -1,5 +1,5 @@
 import Title from "../ui/Title";
-import GridList from "./GridList";
+import CategoriesList from "./CategoriesList";
 
 import { categoriesList } from "../constants";
 
@@ -8,7 +8,7 @@ const Categories = () => {
     <section className="categories">
       <div className="container">
         <Title text="Categories" buttonText="All categories" />
-        <GridList list={categoriesList} extra="mt-10" />
+        <CategoriesList list={categoriesList} extra="mt-10" />
       </div>
     </section>
   );

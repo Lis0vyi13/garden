@@ -14,6 +14,7 @@ export default {
       transparent: "transparent",
       linearGreen1: "#339933",
       linearGreen2: "#0B710B",
+      lightGray: "#F1F3F4",
     },
     screens: {
       xs: "480px",

@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import InputMask from "@mona-health/react-input-mask";
 
+import Modal from "./Modal";
+
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 
 import { discountFormInputs } from "../constants";
-import Modal from "./Modal";
 
 const DiscountForm = () => {
   const { handleSubmit, control, reset } = useForm({ mode: "onChange" });
@@ -34,7 +35,6 @@ const DiscountForm = () => {
               control={control}
               name={item.name}
               rules={{
-                required: "Input is required!",
                 ...(item.type === "number"
                   ? {
                       pattern: {
@@ -42,8 +42,10 @@ const DiscountForm = () => {
                         message:
                           "Invalid phone number format. Example: +38 (123) 456 78 90",
                       },
+                      required:
+                        "Invalid phone number format. Example: +38 (123) 456 78 90",
                     }
-                  : {}),
+                  : { required: "Input is required!" }),
               }}
               defaultValue=""
               render={({
@@ -65,7 +67,9 @@ const DiscountForm = () => {
                   )}
 
                   {error?.message && (
-                    <span className="text-red font-bold">{error.message}</span>
+                    <span className="text-red drop-shadow-none font-bold">
+                      {error.message}
+                    </span>
                   )}
                 </>
               )}
