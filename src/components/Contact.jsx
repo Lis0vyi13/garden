@@ -7,7 +7,7 @@ const ContactInfoBlock = ({ title, text }) => {
     <div className="bg-lightGray gap-6 p-6 rounded-md">
       <h5 className="text-gray text-[20px]">{title}</h5>
 
-      {text?.startsWith("/") ? (
+      {text?.startsWith("/") || text?.startsWith("https") ? (
         <a href="https://web.telegram.org/k/#@lisovyi13">
           <img className="mt-2 scale-90" src={text} alt={title} />
         </a>
@@ -25,7 +25,7 @@ const Contact = () => {
     <section className="contact mb-10">
       <div className="container">
         <Title text="Contact" />
-        <div className="contact-info grid grid-cols-1 sm:grid-cols-[55%,1fr] mt-8 gap-6">
+        <div className="contact-info grid break-words max-w-full grid-cols-1 sm:grid-cols-[55%,43.5%] mt-8 gap-6">
           {contacts.map((contact, i) => {
             return (
               <ContactInfoBlock
