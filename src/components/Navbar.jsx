@@ -23,7 +23,7 @@ const Navbar = () => {
               ? `${underlineStyles} font-bold text-green sm:text-black sm:after:w-full`
               : null
           }
-          to={"/" + link.href + "/"}
+          to={link.href}
         >
           {link.name}
         </NavLink>
@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="container">
         <div className="flex justify-between items-center py-4">
           <div className="logo">
-            <Link to="/garden/">
+            <Link to="/">
               <img src={logo} alt="garden logo" />
             </Link>
           </div>
@@ -45,8 +45,12 @@ const Navbar = () => {
             <ul className="menu-list flex gap-8">{menu}</ul>
           </nav>
 
-          <div className="basket flex gap-4 items-center cursor-pointer">
-            <img src={basket} alt="basket" />
+          <div className="basket flex gap-2 xs:gap-4 items-center cursor-pointer">
+            <img
+              className="scale-[.8] xs:scale-100"
+              src={basket}
+              alt="basket"
+            />
             <Burger
               list={menu}
               menuColor="bg-white border"

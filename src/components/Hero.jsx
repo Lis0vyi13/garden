@@ -19,7 +19,7 @@ const Hero = () => {
         </h1>
         <Button
           text="Check out"
-          extraClassName="mt-10 mb-[140px] md:mb-[200px]"
+          extraClassName="mt-10 mb-[140px] md:mb-[200px] bg-green hover:bg-hoverGreen text-white"
         />
       </div>
     </section>

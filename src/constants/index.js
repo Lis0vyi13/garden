@@ -19,3 +19,12 @@ export const categoriesList = [
   { name: "Planting material", href: Planting_material, url: "/" },
   { name: "Tools and equipment", href: Tools_equipment, url: "/" },
 ];
+
+export const discountFormInputs = [
+  {
+    name: "name",
+    placeholder: "Name",
+  },
+  { name: "phone", placeholder: "Phone number", type: "number" },
+  { name: "email", placeholder: "Email", type: "email" },
+];

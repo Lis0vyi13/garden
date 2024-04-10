@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/garden/" element={<MainPage />} />
+        <Route path="/" element={<MainPage />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,90 @@
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import InputMask from "@mona-health/react-input-mask";
+
+import Input from "../ui/Input";
+import Button from "../ui/Button";
+
+import { discountFormInputs } from "../constants";
+import Modal from "./Modal";
+
+const DiscountForm = () => {
+  const { handleSubmit, control, reset } = useForm({ mode: "onChange" });
+
+  const [isModalActive, setisModalActive] = useState(false);
+
+  const onSubmit = (data) => {
+    if (data) {
+      setisModalActive(true);
+      reset();
+    }
+    console.log(data);
+  };
+
+  return (
+    <>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col w-full gap-2"
+      >
+        {discountFormInputs.map((item) => {
+          return (
+            <Controller
+              key={item.name}
+              control={control}
+              name={item.name}
+              rules={{
+                required: "Input is required!",
+                ...(item.type === "number"
+                  ? {
+                      pattern: {
+                        value: /^\+38 \(\d{3}\) \d{3} \d{2} \d{2}$/,
+                        message:
+                          "Invalid phone number format. Example: +38 (123) 456 78 90",
+                      },
+                    }
+                  : {}),
+              }}
+              defaultValue=""
+              render={({
+                field: { value, onChange },
+                fieldState: { error },
+              }) => (
+                <>
+                  {item.type === "number" ? (
+                    <InputMask
+                      className="bg-transparent font-bold placeholder:text-[18px] placeholder:text-bold px-4 py-2 text-[18px] placeholder-white text-white border outline-none rounded-md border-white w-full"
+                      mask={"+38\\ (999) 999 99 99"}
+                      type={"text"}
+                      value={value}
+                      placeholder="+38 (___) ___ __ __"
+                      onChange={onChange}
+                    />
+                  ) : (
+                    <Input {...item} value={value} onChange={onChange} />
+                  )}
+
+                  {error?.message && (
+                    <span className="text-red font-bold">{error.message}</span>
+                  )}
+                </>
+              )}
+            />
+          );
+        })}
+        <Button
+          text="Get a discount"
+          extraClassName="bg-white text-black mt-3 hover:bg-gray py-3"
+          type="submit"
+        />
+      </form>
+      <Modal
+        isActive={isModalActive}
+        setIsActive={setisModalActive}
+        type="successDiscount"
+      />
+    </>
+  );
+};
+
+export default DiscountForm;
