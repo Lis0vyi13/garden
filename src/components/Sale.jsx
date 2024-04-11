@@ -1,7 +1,6 @@
 import { useMemo } from "react";
-
+import { Link } from "react-router-dom";
 import ProductsList from "./ProductsList";
-import ProductsCardItem from "./ProductsCardItem";
 
 import Title from "../ui/Title";
 
@@ -13,16 +12,15 @@ const Sale = () => {
       products
         .filter((prod) => prod.discount)
         .reverse()
-        .slice(0, 4)
-        .map((prod) => {
-          return <ProductsCardItem key={prod.name} {...prod} />;
-        }),
+        .slice(0, 4),
     [],
   );
   return (
     <section className="sale">
       <div className="container">
-        <Title text="Sale" buttonText="All sales" />
+        <Link to="all-products?from=&to=&discount=true&sortBy=default">
+          <Title text="Sale" buttonText="All sales" />
+        </Link>
         <ProductsList list={sales} />
       </div>
     </section>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const CardItem = ({ name, img, price, discount, url }) => {
+const ProductsCardItem = ({ name, img, price, discount, url }) => {
   const [isHover, setIsHover] = useState(false);
   const currentValue = discount ? Math.round(price * discount) : price;
 
@@ -45,4 +45,4 @@ const CardItem = ({ name, img, price, discount, url }) => {
   );
 };
 
-export default CardItem;
+export default ProductsCardItem;

@@ -1,14 +1,23 @@
-import Title from "../ui/Title";
 import CategoriesList from "./CategoriesList";
 
-import { categoriesList } from "../constants";
+import Title from "../ui/Title";
 
-const Categories = () => {
+import { categoriesList } from "../constants";
+import { Link } from "react-router-dom";
+
+const Categories = ({ withButton }) => {
+  const list = withButton ? categoriesList.slice(0, 4) : categoriesList;
   return (
     <section className="categories">
       <div className="container">
-        <Title text="Categories" buttonText="All categories" />
-        <CategoriesList list={categoriesList} extra="mt-10" />
+        {withButton ? (
+          <Link to="categories">
+            <Title text="Categories" buttonText="All categories" />
+          </Link>
+        ) : (
+          <Title text="Categories" />
+        )}
+        <CategoriesList list={list} extra="mt-10" />
       </div>
     </section>
   );

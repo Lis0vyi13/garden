@@ -1,5 +1,7 @@
-import Title from "../ui/Title";
 import DiscountForm from "./DiscountForm";
+
+import Title from "../ui/Title";
+
 import formImg from "/form-content-img.png";
 
 const Discount = () => {

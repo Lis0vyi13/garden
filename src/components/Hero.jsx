@@ -1,6 +1,8 @@
-import bg from "/bg.jpg";
+import { Link } from "react-router-dom";
 
 import Button from "../ui/Button";
+
+import bg from "/bg.jpg";
 
 const Hero = () => {
   return (
@@ -17,10 +19,12 @@ const Hero = () => {
         <h1 className="text-white pt-[100px] md:pt-20 font-bold text-[28px] xs:text-[35px] sm:text-[42px] md:text-[50px] lg:text-[72px] md:max-w-[650px] lg:max-w-[820px]">
           Amazing Discounts on Garden Products!
         </h1>
-        <Button
-          text="Check out"
-          extraClassName="mt-10 mb-[140px] md:mb-[200px] bg-green hover:bg-hoverGreen text-white"
-        />
+        <Link to="all-products?from=&to=&discount=true&sortBy=default">
+          <Button
+            text="Check out"
+            extraClassName="mt-10 mb-[140px] md:mb-[200px] bg-green hover:bg-hoverGreen text-white"
+          />
+        </Link>
       </div>
     </section>
   );
