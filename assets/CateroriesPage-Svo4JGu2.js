@@ -1,1 +1,0 @@
-import{j as e}from"./index-OGQJNm-v.js";import{C as r}from"./Categories-C8byfwtV.js";const t=()=>e.jsx(e.Fragment,{children:e.jsx("div",{className:"container",children:e.jsx("div",{className:"flex flex-col gap-10 md:gap-20 pt-7 md:pt-12",children:e.jsx(r,{})})})});export{t as default};
