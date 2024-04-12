@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ProductsCardItem = ({ name, img, price, discount, url }) => {
   const [isHover, setIsHover] = useState(false);
-  const currentValue = discount ? Math.round(price * discount) : price;
+  const currentValue = discount ? Math.round(price - price * discount) : price;
 
   const titleName = name.length > 22 ? name.slice(0, 22) + "..." : name;
   return (

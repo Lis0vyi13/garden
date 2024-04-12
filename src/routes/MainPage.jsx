@@ -1,6 +1,6 @@
 import Hero from "../components/Hero";
-import Categories from "../components/Categories";
-import Discount from "../components/Discount";
+import Categories from "../components/Categories/Categories";
+import Discount from "../components/Discount/Discount";
 import Sale from "../components/Sale";
 
 const MainPage = () => {

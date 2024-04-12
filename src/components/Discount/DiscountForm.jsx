@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import InputMask from "@mona-health/react-input-mask";
 
-import Modal from "./Modal";
+import Modal from "../Modal";
 
-import Input from "../ui/Input";
-import Button from "../ui/Button";
+import Input from "../../ui/Input";
+import Button from "../../ui/Button";
 
-import { discountFormInputs } from "../constants";
+import { discountFormInputs } from "../../constants";
 
 const DiscountForm = () => {
   const { handleSubmit, control, reset } = useForm({ mode: "onChange" });
@@ -19,7 +19,6 @@ const DiscountForm = () => {
       setisModalActive(true);
       reset();
     }
-    console.log(data);
   };
 
   return (

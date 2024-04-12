@@ -1,8 +1,7 @@
-import { useMemo, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useMemo, useState } from "react";
 
-import ProductsList from "../ProductsList";
-import AllProductsSort from "./AllProductsSort";
+import ProductsList from "./ProductsTemplates/ProductsList";
+import AllProductsSort from "./ProductsSort";
 
 import { getHighestPrice } from "../../utils/getHighestPrice";
 
@@ -21,25 +20,12 @@ const AllProducts = () => {
     sortBy: "default",
   });
 
-  const location = useLocation();
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    setSortOptions({
-      from: params.get("from") || 0,
-      to: params.get("to") || getHighestPrice(),
-      discount: params.get("discount") === "true",
-      sortBy: params.get("sortBy"),
-    });
-  }, [location.search]);
-
   const filteredList = useMemo(() => {
     let sortedProducts = [...products];
     const { from, to, discount, sortBy } = sortOptions;
-    console.log(sortBy);
     sortedProducts = sortedProducts.filter((item) => {
       const price = item.discount
-        ? Math.round(item.price * item.discount)
+        ? Math.round(item.price - item.price * item.discount)
         : item.price;
       return price >= +from && price <= +to && (!discount || item.discount);
     });
@@ -47,12 +33,18 @@ const AllProducts = () => {
     switch (sortBy) {
       case "low-high":
         sortedProducts.sort(
-          (a, b) => a.price * (a.discount || 1) - b.price * (b.discount || 1),
+          (a, b) =>
+            a.price -
+            (a.discount ? a.price * a.discount : 0) -
+            (b.price - (b.discount ? b.price * b.discount : 0)),
         );
         break;
       case "high-low":
         sortedProducts.sort(
-          (a, b) => b.price * (b.discount || 1) - a.price * (a.discount || 1),
+          (a, b) =>
+            b.price -
+            (b.discount ? b.price * b.discount : 0) -
+            (a.price - (a.discount ? a.price * a.discount : 0)),
         );
         break;
       case "tools-and-equipment":

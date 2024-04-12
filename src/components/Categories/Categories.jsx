@@ -1,8 +1,8 @@
 import CategoriesList from "./CategoriesList";
 
-import Title from "../ui/Title";
+import Title from "../../ui/Title";
 
-import { categoriesList } from "../constants";
+import { categoriesList } from "../../constants";
 import { Link } from "react-router-dom";
 
 const Categories = ({ withButton }) => {

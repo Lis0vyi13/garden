@@ -1,6 +1,8 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import Layout from "./components/Layout";
+
+import Layout from "./layouts/Layout";
+
 import Loader from "./components/Loader/Loader";
 
 const MainPage = lazy(() => import("./routes/MainPage"));

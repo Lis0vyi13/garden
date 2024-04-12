@@ -1,12 +1,12 @@
 import ContactInfoBlock from "./ContactInfoBlock";
 
-import Title from "../ui/Title";
+import Title from "../../ui/Title";
 
-import { contacts } from "../constants";
+import { contacts } from "../../constants";
 
 const Contact = () => {
   return (
-    <section className="contact mb-10">
+    <section className="contact mb-10 pt-10 md:pt-20">
       <div className="container">
         <Title text="Contact" />
         <ContactInfoBlock contacts={contacts} />
@@ -19,7 +19,7 @@ const Contact = () => {
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+        />
       </div>
     </section>
   );

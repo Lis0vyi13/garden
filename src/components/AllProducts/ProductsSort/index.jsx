@@ -6,11 +6,14 @@ import { PriceFilter } from "./PriceFilter";
 import { DiscountFilter } from "./DiscountFilter";
 import { SortingOptions } from "./SortingOptions";
 
+import debounce from "../../../utils/debounce";
+
 import { sortOptions } from "../../../constants";
 
 const AllProductsSort = ({ setOptions, setIsUpdating }) => {
-  const { register, getValues } = useForm();
+  const { register, getValues, setValue } = useForm();
   const [isChecked, setIsChecked] = useState(false);
+  const [selectValue, setSelectValue] = useState("By default");
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -21,9 +24,17 @@ const AllProductsSort = ({ setOptions, setIsUpdating }) => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    params.get("discount") && setIsChecked(true);
+    params.get("discount") === "true"
+      ? setIsChecked(true)
+      : setIsChecked(false);
+    setValue("from", params.get("from"));
+    setValue("to", params.get("to"));
+    setValue("discount", params.get("discount") || false);
+    setValue("sortBy", params.get("sortBy"));
+    setSelectValue(params.get("sortBy"));
+    onChange();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location.search, setValue]);
 
   const onChange = () => {
     setIsUpdating(true);
@@ -45,28 +56,19 @@ const AllProductsSort = ({ setOptions, setIsUpdating }) => {
           obj[key] = data[key];
           return obj;
         }, {});
-
       filteredData.from = +filteredData.from || 0;
       filteredData.to = +filteredData.to || 500;
       setOptions((prevData) => ({ ...prevData, ...filteredData }));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setIsUpdating(false);
     }
   };
 
-  let timer;
-  const debounceOnChange = () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      onChange();
-    }, 500);
-  };
-
   return (
     <section className="all-products__sort inline-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[repeat(3,_minmax(0,max-content))] items-center gap-8">
-      <PriceFilter register={register} onChange={debounceOnChange} />
+      <PriceFilter register={register} onChange={debounce(onChange)} />
       <DiscountFilter
         register={register}
         isChecked={isChecked}
@@ -76,6 +78,7 @@ const AllProductsSort = ({ setOptions, setIsUpdating }) => {
         register={register}
         sortOptions={sortOptions}
         onChange={onChange}
+        activeSelectValue={selectValue}
       />
     </section>
   );

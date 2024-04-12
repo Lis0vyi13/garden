@@ -1,6 +1,6 @@
 import DiscountForm from "./DiscountForm";
 
-import Title from "../ui/Title";
+import Title from "../../ui/Title";
 
 import formImg from "/form-content-img.png";
 
