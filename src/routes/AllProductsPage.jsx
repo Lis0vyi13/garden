@@ -4,7 +4,7 @@ import AllProducts from "../components/AllProducts";
 
 const AllProductsPage = () => {
   return (
-    <PageWrapper>
+    <PageWrapper block="all-products">
       <AllProducts />
     </PageWrapper>
   );

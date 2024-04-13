@@ -6,7 +6,7 @@ import bg from "/bg.jpg";
 
 const Hero = () => {
   return (
-    <section className="hero relative">
+    <section className="hero relative -mt-3">
       <div className="img after:content[''] after:-z-10 after:absolute after:block after:left-0 after:top-0 after:w-full after:h-full after:bg-black after:opacity-40">
         <img
           className="absolute -z-10 h-full w-full object-cover"
@@ -22,7 +22,8 @@ const Hero = () => {
         <Link to="all-products?from=&to=&discount=true&sortBy=default">
           <Button
             text="Check out"
-            extraClassName="mt-10 mb-[140px] md:mb-[200px] bg-green hover:bg-hoverGreen text-white"
+            isGreen
+            extraClassName="mt-10 mb-[140px] md:mb-[200px]"
           />
         </Link>
       </div>

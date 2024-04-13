@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+
 import ProductsList from "./AllProducts/ProductsTemplates/ProductsList";
 
 import Title from "../ui/Title";

@@ -4,7 +4,7 @@ import Categories from "../components/Categories/Categories";
 
 const CateroriesPage = () => {
   return (
-    <PageWrapper>
+    <PageWrapper block="categories">
       <Categories />
     </PageWrapper>
   );

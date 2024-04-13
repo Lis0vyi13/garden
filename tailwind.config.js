@@ -10,6 +10,7 @@ export default {
       gray: "#8B8B8B",
       hoverGray: "#4d4d4d",
       red: "#ff0000",
+      hoverRed: "#951113",
       divider: "#DDDDDD",
       transparent: "transparent",
       linearGreen1: "#339933",

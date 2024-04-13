@@ -1,8 +1,11 @@
+// Categories
 import fertilizer from "/categories/fertilizer.png";
 import Protective_products from "/categories/Protective_products.png";
 import Planting_material from "/categories/Planting_material.png";
 import Tools_equipment from "/categories/Tools_equipment.png";
 import pots_and_planters from "/categories/pots_and_planters.png";
+import decor from "/categories/decor.webp";
+// Products
 import secateurs from "/products/secateurs.png";
 import aquarium_lock from "/products/Aquarium_lock.png";
 import barbell from "/products/barbell.png";
@@ -14,6 +17,21 @@ import gargen_pitchfork from "/products/gargen-pitchfork.png";
 import gloves from "/products/gloves.png";
 import hacksaw from "/products/hacksaw.png";
 import souvenir_thermometer from "/products/souvenir-thermometer.png";
+import organic_fertilizer from "/products/organic_fertilizer.jpg";
+import liquid_fertilizer_for_flowers from "/products/liquid_fertilizer_for_flowers.jpg";
+import granular_fertilizer from "/products/granular_fertilizer.webp";
+import insect_repellent from "/products/insect_repellent.jpg";
+import hand_sanitizer from "/products/hand_sanitizer.jpg";
+import septic_tank_tablets from "/products/septic_tank_tablets.webp";
+import hydrogel from "/products/hydrogel.jpg";
+import perlite from "/products/perlite.webp";
+import seed_trays from "/products/seed_trays.webp";
+import potting_soil from "/products/potting_soil.webp";
+import window_planter from "/products/window_planter.webp";
+import decorative_planter from "/products/decorative_planter.webp";
+import hanging_basket from "/products/hanging_basket.webp";
+import ceramic_pot from "/products/ceramic_pot.webp";
+
 import telegram from "/telegram.svg";
 
 export const navLinks = [
@@ -21,20 +39,47 @@ export const navLinks = [
   { name: "Categories", href: "categories" },
   {
     name: "All products",
-    href: "all-products?from=&to=&discount=&sortBy=default",
+    href: "all-products?from=&to=&discount=&sortBy=default&category=All+products",
   },
 ];
 
 export const categoriesList = [
-  { name: "Fertilizer", href: fertilizer, url: "/" },
+  {
+    name: "Fertilizer",
+    href: fertilizer,
+    url: "/all-products?from=&to=&discount=&sortBy=default&category=Fertilizer",
+    value: "Fertilizer",
+  },
   {
     name: "Protective products and septic tanks",
     href: Protective_products,
-    url: "/",
+    url: "/all-products?from=&to=&discount=&sortBy=default&category=Protective+products+and+septic+tanks",
+    value: "Protective products and septic tanks",
   },
-  { name: "Planting material", href: Planting_material, url: "/" },
-  { name: "Tools and equipment", href: Tools_equipment, url: "/" },
-  { name: "Pots and planters", href: pots_and_planters, url: "/" },
+  {
+    name: "Planting material",
+    href: Planting_material,
+    url: "/all-products?from=&to=&discount=&sortBy=default&category=Planting+material",
+    value: "Planting material",
+  },
+  {
+    name: "Tools and equipment",
+    href: Tools_equipment,
+    url: "/all-products?from=&to=&discount=&sortBy=default&category=Tools+and+equipment",
+    value: "Tools and equipment",
+  },
+  {
+    name: "Pots and planters",
+    href: pots_and_planters,
+    url: "/all-products?from=&to=&discount=&sortBy=default&category=Pots+and+planters",
+    value: "Pots and planters",
+  },
+  {
+    name: "Decor",
+    href: decor,
+    url: "/all-products?from=&to=&discount=&sortBy=default&category=Decor",
+    value: "Decor",
+  },
 ];
 
 export const discountFormInputs = [
@@ -48,12 +93,40 @@ export const discountFormInputs = [
 
 export const products = [
   {
+    name: "Flower basket",
+    price: 150,
+    img: Flower_basket,
+    discount: 0.34,
+    url: "/cat",
+    type: "decor",
+    id: 1,
+  },
+  {
+    name: "Aquarium lock",
+    price: 200,
+    img: aquarium_lock,
+    discount: 0.25,
+    url: "/cat",
+    type: "decor",
+    id: 2,
+  },
+  {
+    name: "Organic fertilizer",
+    price: 20,
+    img: organic_fertilizer,
+    discount: null,
+    url: "/cat",
+    type: "fertilizer",
+    id: 3,
+  },
+  {
     name: "Secateurs",
     price: 240,
     img: secateurs,
     discount: 0.17,
     url: "/cat",
     type: "tools-and-equipment",
+    id: 4,
   },
   {
     name: "Collection for berries (plastic)",
@@ -62,6 +135,7 @@ export const products = [
     discount: 0.26,
     url: "/cat",
     type: "tools-and-equipment",
+    id: 5,
   },
   {
     name: "Gloves (black)",
@@ -70,6 +144,7 @@ export const products = [
     discount: 0.36,
     url: "/cat",
     type: "tools-and-equipment",
+    id: 6,
   },
   {
     name: "Sickle-shaped hacksaw",
@@ -78,6 +153,7 @@ export const products = [
     discount: null,
     url: "/cat",
     type: "tools-and-equipment",
+    id: 7,
   },
   {
     name: "Bayonet shovel",
@@ -86,6 +162,34 @@ export const products = [
     discount: null,
     url: "/cat",
     type: "tools-and-equipment",
+    id: 8,
+  },
+  {
+    name: "Liquid fertilizer for flowers",
+    price: 15,
+    img: liquid_fertilizer_for_flowers,
+    discount: 0.1,
+    url: "/cat",
+    type: "fertilizer",
+    id: 9,
+  },
+  {
+    name: "Granular fertilizer for vegetables",
+    price: 25,
+    img: granular_fertilizer,
+    discount: null,
+    url: "/cat",
+    type: "fertilizer",
+    id: 10,
+  },
+  {
+    name: "Insect repellent spray",
+    price: 10,
+    img: insect_repellent,
+    discount: null,
+    url: "/cat",
+    type: "protective-products-and-septic-tanks",
+    id: 11,
   },
   {
     name: "Garden pitchfork",
@@ -94,6 +198,7 @@ export const products = [
     discount: null,
     url: "/cat",
     type: "tools-and-equipment",
+    id: 12,
   },
   {
     name: "Barbell",
@@ -102,6 +207,7 @@ export const products = [
     discount: null,
     url: "/cat",
     type: "tools-and-equipment",
+    id: 13,
   },
   {
     name: "Souvenir thermometer",
@@ -110,6 +216,7 @@ export const products = [
     discount: 0.18,
     url: "/cat",
     type: "tools-and-equipment",
+    id: 14,
   },
   {
     name: "Decorative forged bridge",
@@ -117,23 +224,98 @@ export const products = [
     img: Decorative_bridge,
     discount: 0.5,
     url: "/cat",
-    type: "",
+    type: "decor",
+    id: 15,
   },
   {
-    name: "Flower basket",
-    price: 150,
-    img: Flower_basket,
-    discount: 0.34,
+    name: "Antibacterial hand sanitizer",
+    price: 8,
+    img: hand_sanitizer,
+    discount: 0.15,
     url: "/cat",
-    type: "",
+    type: "protective-products-and-septic-tanks",
+    id: 16,
   },
   {
-    name: "Aquarium lock",
-    price: 200,
-    img: aquarium_lock,
-    discount: 0.25,
+    name: "Septic tank treatment tablets",
+    price: 30,
+    img: septic_tank_tablets,
+    discount: null,
     url: "/cat",
-    type: "",
+    type: "protective-products-and-septic-tanks",
+    id: 17,
+  },
+  {
+    name: "Hydrogel for plants",
+    price: 8,
+    img: hydrogel,
+    discount: null,
+    url: "/cat",
+    type: "planting-material",
+    id: 18,
+  },
+  {
+    name: "Potting soil mix",
+    price: 12,
+    img: potting_soil,
+    discount: 0.1,
+    url: "/cat",
+    type: "planting-material",
+    id: 19,
+  },
+  {
+    name: "Seeds starter trays",
+    price: 5,
+    img: seed_trays,
+    discount: null,
+    url: "/cat",
+    type: "planting-material",
+    id: 20,
+  },
+  {
+    name: "Perlite",
+    price: 6,
+    img: perlite,
+    discount: 0.15,
+    url: "/cat",
+    type: "planting-material",
+    id: 21,
+  },
+  {
+    name: "Ceramic flower pot",
+    price: 30,
+    img: ceramic_pot,
+    discount: null,
+    url: "/cat",
+    type: "pots-and-planters",
+    id: 22,
+  },
+  {
+    name: "Hanging planter basket",
+    price: 25,
+    img: hanging_basket,
+    discount: 0.15,
+    url: "/cat",
+    type: "pots-and-planters",
+    id: 23,
+  },
+  {
+    name: "Decorative garden planter",
+    price: 40,
+    img: decorative_planter,
+    discount: null,
+    url: "/cat",
+    type: "pots-and-planters",
+    id: 24,
+  },
+  {
+    name: "Window box planter",
+    price: 20,
+    img: window_planter,
+    discount: 0.2,
+    url: "/cat",
+    type: "pots-and-planters",
+    id: 25,
   },
 ];
 export const contacts = [
@@ -163,5 +345,4 @@ export const sortOptions = [
   { value: "default", label: "By default" },
   { value: "low-high", label: "Price: Low to High" },
   { value: "high-low", label: "Price: High to Low" },
-  { value: "tools-and-equipment", label: "Tools and equipment" },
 ];

@@ -1,10 +1,12 @@
-const PageWrapper = ({ children }) => {
+const PageWrapper = ({ block, blockClassname, children }) => {
   return (
-    <div className="container">
-      <div className="flex flex-col gap-10 md:gap-20 pt-7 md:pt-12">
-        {children}
+    <section className={`${block}${blockClassname || ""}`}>
+      <div className="container">
+        <div className="flex flex-col gap-10 md:gap-20 pt-7 md:pt-12">
+          {children}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

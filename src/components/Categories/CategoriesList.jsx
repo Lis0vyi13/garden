@@ -16,7 +16,7 @@ const GridList = ({ list, extra }) => {
               to={item.url}
               className="flex w-full h-full flex-col gap-4 items-center"
             >
-              <div className="relative duration-300 hover:after:opacity-50 rounded-[6px] img w-full h-[350px] overflow-hidden after:content[''] after:duration-300 after:absolute after:block after:left-0 after:top-0 after:w-full after:h-full after:bg-black after:opacity-0">
+              <div className="relative duration-300 hover:after:opacity-50 after:rounded-[12px] rounded-[12px] img w-full h-[350px] overflow-hidden after:content[''] after:duration-300 after:absolute after:block after:left-0 after:top-0 after:w-full after:h-full after:bg-black after:opacity-0">
                 <img
                   className="relative"
                   src={item.href}
@@ -26,6 +26,7 @@ const GridList = ({ list, extra }) => {
                     top: 0,
                     left: 0,
                     width: "100%",
+                    height: "100%",
                   }}
                 />
               </div>
