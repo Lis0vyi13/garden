@@ -1,6 +1,6 @@
 const ContactInfoBlock = ({ contacts }) => {
   return (
-    <div className="contact-info grid break-words max-w-full grid-cols-1 sm:grid-cols-[55%,43.5%] mt-8 gap-6">
+    <div className="contact-info grid break-words max-w-full grid-cols-1 sm:grid-cols-[55%,43.2%] mt-8 gap-6">
       {contacts.map((contact, index) => (
         <div key={index} className="bg-lightGray gap-6 p-6 rounded-md">
           <h5 className="text-gray text-[20px]">{contact.title}</h5>

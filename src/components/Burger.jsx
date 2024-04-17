@@ -1,33 +1,16 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+import { useOutsideClick } from "../hooks/useOutsideClick";
 
 const Burger = ({ list, extra, color, menuColor, menuPosition }) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
 
-  const handleClick = () => {
-    setIsOpen((prevState) => !prevState);
-  };
-
-  const handleOutsideClick = (e) => {
-    if (
-      !menuRef.current.contains(e.target) &&
-      !e.target.classList.contains("burger")
-    ) {
-      setIsOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [isOpen]);
+  useOutsideClick(menuRef, () => setIsOpen(false));
 
   return (
     <div
-      onClick={handleClick}
+      ref={menuRef}
+      onClick={() => setIsOpen((prev) => !prev)}
       className={`burger sm:hidden block relative cursor-pointer p-2 ${extra} text-[18px]`}
     >
       <div
@@ -51,8 +34,7 @@ const Burger = ({ list, extra, color, menuColor, menuPosition }) => {
       </div>
 
       <div
-        ref={menuRef}
-        className={`transition-all burger-menu absolute right-0 min-w-[150px] rounded-xl ${
+        className={`transition-all burger-menu absolute right-0 min-w-[150px] rounded-xl pointer-events-none ${
           isOpen
             ? "opacity-1 pointer-events-auto opened"
             : "opacity-0 pointer-events-none"

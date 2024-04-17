@@ -9,6 +9,8 @@ const MainPage = lazy(() => import("./routes/MainPage"));
 const CateroriesPage = lazy(() => import("./routes/CateroriesPage"));
 const AllProductsPage = lazy(() => import("./routes/AllProductsPage"));
 const Page404 = lazy(() => import("./routes/Page404"));
+const SingleProductPage = lazy(() => import("./routes/SingleProductPage"));
+const ShoppingCart = lazy(() => import("./routes/ShoppingCart"));
 
 function App() {
   return (
@@ -36,6 +38,22 @@ function App() {
             element={
               <Suspense fallback={<Loader />}>
                 <AllProductsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/:type/:productName/:id"
+            element={
+              <Suspense fallback={<Loader />}>
+                <SingleProductPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="shopping-cart"
+            element={
+              <Suspense fallback={<Loader />}>
+                <ShoppingCart />
               </Suspense>
             }
           />

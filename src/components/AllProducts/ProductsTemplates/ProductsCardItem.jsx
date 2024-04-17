@@ -1,17 +1,22 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Button from "../../../ui/Button";
 
 import { useActions } from "../../../hooks/useActions";
 
-const ProductsCardItem = ({ name, img, price, discount, url, id }) => {
+const ProductsCardItem = ({ name, img, price, discount, id, type }) => {
+  const store = useSelector((state) => state.cartAmount);
   const { toggleCart } = useActions();
   const [isHover, setIsHover] = useState(false);
-  const [isAdded, setIsAdded] = useState(false);
+
+  const isAdded = store?.arr?.some((item) => item.id === id);
   const currentValue = discount ? Math.round(price - price * discount) : price;
+  const url = `/${type}/${name}/${id}`;
 
   const titleName = name.length > 22 ? name.slice(0, 21) + "..." : name;
+
   return (
     <div
       className={`card relative z-10 ${name} max-w-[300px] min-h-[390px] border rounded-xl border-divider`}
@@ -21,8 +26,7 @@ const ProductsCardItem = ({ name, img, price, discount, url, id }) => {
       <Button
         text={isAdded ? "Added" : `Add to cart`}
         onClick={() => {
-          toggleCart(id);
-          setIsAdded((prevState) => !prevState);
+          toggleCart({ id, amount: 1 });
         }}
         extraClassName={` ${isHover && "bottom-[140px]"} ${
           isAdded

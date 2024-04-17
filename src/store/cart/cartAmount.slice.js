@@ -8,10 +8,10 @@ export const cartSlice = createSlice({
   },
   reducers: {
     toggleCart: (state, { payload }) => {
-      const isExists = state.arr.some((item) => item === payload);
+      const isExists = state.arr.some((item) => item.id === payload.id);
       const value = isExists ? -1 : 1;
       isExists
-        ? (state.arr = state.arr.filter((item) => item != payload))
+        ? (state.arr = state.arr.filter((item) => item.id != payload.id))
         : state.arr.push(payload);
       state.value += value;
     },

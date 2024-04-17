@@ -10,7 +10,7 @@ export const SortingOptions = ({
       <select
         className="border-2 cursor-pointer border-divider p-2 rounded-md w-[175px] xs:w-[200px]"
         {...register("sortBy", { onChange })}
-        value={activeSelectValue}
+        value={activeSelectValue || ""}
       >
         {sortOptions.map((option) => (
           <option

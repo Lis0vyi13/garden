@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import Button from "../ui/Button";
 
-import bg from "/bg.jpg";
+import bg from "/bg.webp";
 
 const Hero = () => {
   return (
