@@ -58,7 +58,7 @@ export const useFormHandler = ({ setOptions, setIsUpdating }) => {
     } finally {
       setTimeout(() => {
         setIsUpdating(false);
-      }, 150);
+      }, 100);
     }
   };
 

@@ -16,9 +16,12 @@ export default {
       linearGreen1: "#339933",
       linearGreen2: "#0B710B",
       lightGray: "#F1F3F4",
+      hoverLightGray: "#a0a0a0",
     },
     screens: {
+      xxs: "375px",
       xs: "480px",
+      xsSm: "590px",
       sm: "640px",
       md: "768px",
       lg: "1024px",

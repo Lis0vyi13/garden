@@ -38,3 +38,8 @@ input:focus-within + span {
   color: #ff0000;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+

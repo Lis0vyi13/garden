@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
 
 import ProductsList from "./AllProducts/ProductsTemplates/ProductsList";
 
@@ -19,9 +18,11 @@ const Sale = () => {
   return (
     <section className="sale">
       <div className="container">
-        <Link to="all-products?from=&to=&discount=true&sortBy=default">
-          <Title text="Sale" buttonText="All sales" />
-        </Link>
+        <Title
+          to="all-products?from=&to=&discount=true&sortBy=default"
+          text="Sale"
+          buttonText="All sales"
+        />
         <ProductsList list={sales} />
       </div>
     </section>

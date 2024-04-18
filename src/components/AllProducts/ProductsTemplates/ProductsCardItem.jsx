@@ -1,21 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 import Button from "../../../ui/Button";
+import { useCartActions } from "../../../hooks/useCartActions";
 
-import { useActions } from "../../../hooks/useActions";
-
-const ProductsCardItem = ({ name, img, price, discount, id, type }) => {
-  const store = useSelector((state) => state.cartAmount);
-  const { toggleCart } = useActions();
+const ProductsCardItem = ({
+  name,
+  img,
+  price,
+  discount,
+  id,
+  type,
+  description,
+}) => {
+  const { isAdded, toggleCart } = useCartActions(id);
   const [isHover, setIsHover] = useState(false);
 
-  const isAdded = store?.arr?.some((item) => item.id === id);
   const currentValue = discount ? Math.round(price - price * discount) : price;
   const url = `/${type}/${name}/${id}`;
 
   const titleName = name.length > 22 ? name.slice(0, 21) + "..." : name;
+  const product = { name, img, price, discount, id, type, description };
 
   return (
     <div
@@ -26,7 +31,7 @@ const ProductsCardItem = ({ name, img, price, discount, id, type }) => {
       <Button
         text={isAdded ? "Added" : `Add to cart`}
         onClick={() => {
-          toggleCart({ id, amount: 1 });
+          toggleCart({ ...product, quantity: 1 });
         }}
         extraClassName={` ${isHover && "bottom-[140px]"} ${
           isAdded
@@ -35,9 +40,20 @@ const ProductsCardItem = ({ name, img, price, discount, id, type }) => {
         } text-white absolute bottom-16 left-1/2 -translate-x-1/2 px-4 w-[147px] z-10`}
       />
       <Link className="relative" to={url}>
-        <div className={`relative z-0 w-[297px] h-[266px] overflow-hidden`}>
-          <img className="rounded-t-xl" src={img} alt={name} />
+        <div
+          className={`relative z-0 w-[297px] h-[266px] overflow-hidden flex items-center justify-center`}
+        >
+          <img
+            style={{
+              objectFit: "cover",
+              aspectRatio: 1,
+            }}
+            className="rounded-t-xl h-full w-full"
+            src={img}
+            alt={name}
+          />
         </div>
+
         <div className="relative border-t-2 border-t-divider bg-white z-10 item-content p-6 py-3">
           <h2 title={name} className="font-semibold text-[20px] ">
             {titleName}

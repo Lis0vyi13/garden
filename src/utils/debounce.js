@@ -1,9 +1,9 @@
-const debounce = (onChange) => {
+const debounce = (callback) => {
   let timer;
-  return () => {
+  return (...args) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      onChange();
+      callback(...args);
     }, 500);
   };
 };

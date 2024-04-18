@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 import ProductsCardItem from "./ProductsCardItem";
 
 import Loader from "../../Loader/Loader";
 import Button from "../../../ui/Button";
 
-const ProductsList = ({ list }) => {
+const ProductsListInitial = ({ list }) => {
   const [paginationValue, setPaginationValue] = useState({ min: 0, max: 20 });
   const [currentList, setCurrentList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -58,4 +58,5 @@ const ProductsList = ({ list }) => {
   );
 };
 
+const ProductsList = memo(ProductsListInitial);
 export default ProductsList;

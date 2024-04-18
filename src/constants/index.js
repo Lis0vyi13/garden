@@ -6,16 +6,15 @@ import Tools_equipment from "/categories/Tools_equipment.png";
 import pots_and_planters from "/categories/pots_and_planters.png";
 import decor from "/categories/decor.webp";
 // Products
-import secateurs from "/products/secateurs.png";
-import aquarium_lock from "/products/Aquarium_lock.png";
-import barbell from "/products/barbell.png";
-import bayonet_shovel from "/products/bayonet-shovel.png";
-import berries_collection from "/products/berries-collection.png";
-import Decorative_bridge from "/products/Decorative_bridge.png";
-import Flower_basket from "/products/Flower_basket.png";
-import gargen_pitchfork from "/products/gargen-pitchfork.png";
-import gloves from "/products/gloves.png";
-import hacksaw from "/products/hacksaw.png";
+import secateurs from "/products/secateurs.webp";
+import aquarium_lock from "/products/Aquarium_lock.jpg";
+import bayonet_shovel from "/products/bayonet-shovel.jpg";
+import berries_collection from "/products/berries-collection.webp";
+import Decorative_bridge from "/products/Decorative_bridge.jpg";
+import Flower_basket from "/products/Flower_basket.webp";
+import garden_pitchfork from "/products/garden-pitchfork.jpg";
+import gloves from "/products/gloves.webp";
+import hacksaw from "/products/hacksaw.jpg";
 import souvenir_thermometer from "/products/souvenir-thermometer.png";
 import organic_fertilizer from "/products/organic_fertilizer.jpg";
 import liquid_fertilizer_for_flowers from "/products/liquid_fertilizer_for_flowers.jpg";
@@ -203,24 +202,15 @@ export const products = [
     id: 12,
     name: "Garden pitchfork",
     price: 179,
-    img: gargen_pitchfork,
+    img: garden_pitchfork,
     discount: null,
     type: "tools-and-equipment",
     description:
       "Turn and aerate your soil easily with our durable garden pitchfork.",
   },
+
   {
     id: 13,
-    name: "Barbell",
-    price: 12,
-    img: barbell,
-    discount: null,
-    type: "tools-and-equipment",
-    description:
-      "Add some weight to your garden workouts with this sturdy barbell.",
-  },
-  {
-    id: 14,
     name: "Souvenir thermometer",
     price: 120,
     img: souvenir_thermometer,
@@ -230,7 +220,7 @@ export const products = [
       "Monitor the temperature of your garden in style with our souvenir thermometer.",
   },
   {
-    id: 15,
+    id: 14,
     name: "Decorative forged bridge",
     price: 1000,
     img: Decorative_bridge,
@@ -240,7 +230,7 @@ export const products = [
       "Add a touch of elegance to your garden with this beautifully crafted decorative bridge.",
   },
   {
-    id: 16,
+    id: 15,
     name: "Antibacterial hand sanitizer",
     price: 8,
     img: hand_sanitizer,
@@ -250,7 +240,7 @@ export const products = [
       "Keep your hands clean and germ-free while working in your garden with our antibacterial hand sanitizer.",
   },
   {
-    id: 17,
+    id: 16,
     name: "Septic tank treatment tablets",
     price: 30,
     img: septic_tank_tablets,
@@ -260,7 +250,7 @@ export const products = [
       "Maintain the health of your septic tank with our convenient treatment tablets.",
   },
   {
-    id: 18,
+    id: 17,
     name: "Hydrogel for plants",
     price: 8,
     img: hydrogel,
@@ -269,7 +259,7 @@ export const products = [
     description: "Keep your plants hydrated for longer with our hydrogel.",
   },
   {
-    id: 19,
+    id: 18,
     name: "Potting soil mix",
     price: 12,
     img: potting_soil,
@@ -279,7 +269,7 @@ export const products = [
       "Provide your plants with the perfect growing medium using our high-quality potting soil mix.",
   },
   {
-    id: 20,
+    id: 19,
     name: "Seeds starter trays",
     price: 5,
     img: seed_trays,
@@ -289,7 +279,7 @@ export const products = [
       "Start your seeds off right with our durable and reusable starter trays.",
   },
   {
-    id: 21,
+    id: 20,
     name: "Perlite",
     price: 6,
     img: perlite,
@@ -298,7 +288,7 @@ export const products = [
     description: "Improve soil aeration and drainage with our premium perlite.",
   },
   {
-    id: 22,
+    id: 21,
     name: "Ceramic flower pot",
     price: 30,
     img: ceramic_pot,
@@ -308,7 +298,7 @@ export const products = [
       "Display your favorite flowers in style with our elegant ceramic flower pot.",
   },
   {
-    id: 23,
+    id: 22,
     name: "Hanging planter basket",
     price: 25,
     img: hanging_basket,
@@ -318,7 +308,7 @@ export const products = [
       "Add some greenery to your home with our versatile hanging planter basket.",
   },
   {
-    id: 24,
+    id: 23,
     name: "Decorative garden planter",
     price: 40,
     img: decorative_planter,
@@ -328,7 +318,7 @@ export const products = [
       "Enhance your outdoor space with our stylish decorative garden planter.",
   },
   {
-    id: 25,
+    id: 24,
     name: "Window box planter",
     price: 20,
     img: window_planter,

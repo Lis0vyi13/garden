@@ -5,29 +5,32 @@ import Counter from "./Counter";
 
 import Button from "../ui/Button";
 
-import { useActions } from "../hooks/useActions";
-import { products } from "../constants";
-import { useSelector } from "react-redux";
+import { useCartActions } from "../hooks/useCartActions";
+
+import { getProductById } from "../utils/getProductById";
+
+const MAX_DESCRIPTION_LENGTH = 965;
 
 const SingleProduct = () => {
-  const MAX_DESCRIPTION_LENGTH = 965;
-
-  const store = useSelector((state) => state.cartAmount);
-  const { toggleCart } = useActions();
   const { id } = useParams();
+  const { isAdded, toggleCart } = useCartActions(id);
 
   const [isExpanded, setIsExpanded] = useState(false);
-  const [productCount, setProductCount] = useState(1);
+  const [productCounter, setProductCounter] = useState(1);
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    const currentProduct = products.filter((prod) => prod.id === +id);
-    setProduct(...currentProduct);
+    const currentProduct = getProductById(id);
+    setProduct(currentProduct);
   }, [id]);
 
   const { name, img, price, discount, description } = product;
 
-  const isAdded = store?.arr?.some((item) => item.id === +id);
+  const currentPrice = discount ? Math.round(price - price * discount) : price;
+
+  const activeButtonStyles = isAdded
+    ? "bg-black hover:bg-hoverGray"
+    : "bg-green hover:bg-hoverGreen";
 
   const modifiedDescription = isExpanded
     ? description
@@ -35,35 +38,28 @@ const SingleProduct = () => {
     ? description?.slice(0, MAX_DESCRIPTION_LENGTH - 3) + "..."
     : description;
 
-  const currentPrice = discount ? Math.round(price - price * discount) : price;
-
   return (
     <section className={`${name?.toLowerCase()}`}>
-      <div className="flex flex-col items-center sm:items-start sm:flex-row gap-6 sm:gap-10">
-        <div className="product-img sm:w-1/2">
+      <div className="w-full flex flex-col items-center md:items-start md:flex-row gap-6 md:gap-10">
+        <div className="product-img md:w-1/2 h-[320px] xxs:h-[435px] md:h-[470px] lg:h-[570px] flex items-center justify-center">
           <img
-            style={{
-              width: "100%",
-              height: "calc(100% - 10px)",
-              objectFit: "cover",
-            }}
-            className="max-w-[445px] sm:max-w-full"
+            className="h-full xs:max-w-[445px] md:max-w-full object-cover aspect-square"
             src={img}
             alt={name}
           />
         </div>
-        <div className="product-content flex flex-col gap-4 sm:w-1/2">
+        <div className="product-content flex flex-col gap-4 xxs:mt-3 md:mt-0 md:w-1/2">
           <div className="flex flex-col">
             <h1 className="font-bold text-2xl md:text-2xl lg:text-3xl">
               {name}
             </h1>
           </div>
-          <div className="flex items-center gap-7">
+          <div className="flex items-center gap-5">
             <h2 className="font-bold text-[30px] lg:text-[42px] pt-1">
               ${currentPrice}
             </h2>
             {discount && (
-              <h4 className="relative text-[20px] lg:text-[32px] text-gray line-through mt-5">
+              <h4 className="relative text-[20px] lg:text-[32px] text-gray line-through mt-4">
                 ${price}
                 <div className="absolute font-semibold text-[16px] p-1 px-2 rounded-md bg-green text-white right-[-70px] top-[-10px]">{`-${
                   discount * 100
@@ -73,18 +69,14 @@ const SingleProduct = () => {
           </div>
           <div className="flex gap-4 flex-col lg:flex-row lg:justify-between lg:items-center">
             <div className="w-full lg:w-fit">
-              <Counter value={productCount} setValue={setProductCount} />
+              <Counter value={productCounter} setValue={setProductCounter} />
             </div>
             <Button
               text={isAdded ? "Added" : "Add to cart"}
               onClick={() => {
-                toggleCart({ id: +id, amount: productCount });
+                toggleCart({ ...product, quantity: productCounter });
               }}
-              extraClassName={`w-full lg:w-3/5 text-[18px] text-white ${
-                isAdded
-                  ? "bg-black hover:bg-hoverGray"
-                  : "bg-green hover:bg-hoverGreen"
-              }`}
+              extraClassName={`w-full lg:w-3/5 text-[18px] text-white ${activeButtonStyles}`}
             />
           </div>
           <div className="product-description mt-2">

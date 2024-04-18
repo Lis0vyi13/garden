@@ -1,22 +1,36 @@
-const Counter = ({ value, setValue }) => {
+import { useCartActions } from "../hooks/useCartActions";
+
+const Counter = ({ value, setValue, id }) => {
+  const { changeItemQuantity } = useCartActions();
+
   const onSubtract = () => {
-    setValue((prev) => Math.max(+prev - 1, 1));
+    setValue((prev) => {
+      const newValue = Math.max(+prev - 1, 1);
+      if (id) changeItemQuantity({ id, value: newValue });
+      return newValue;
+    });
   };
+
   const onSum = () => {
-    setValue((prev) => Math.min(Math.max(+prev + 1, 1), 100));
+    setValue((prev) => {
+      const newValue = Math.min(Math.max(+prev + 1, 1), 100);
+      if (id) changeItemQuantity({ id, value: newValue });
+      return newValue;
+    });
   };
 
-  const handleInputChange = (e) => {
-    let newValue = parseInt(e.target.value);
-
+  const debouncedHandleInputChange = (e) => {
+    let newValue = !e.target.value ? 1 : parseInt(e.target.value);
     if (newValue < 1) {
-      newValue = "";
+      newValue = 1;
     } else if (newValue > 100) {
       newValue = 100;
     }
-
     setValue(newValue);
+
+    if (id) changeItemQuantity({ id, value: newValue });
   };
+
   return (
     <section className="counter flex justify-between border border-divider h-16">
       <button
@@ -29,7 +43,7 @@ const Counter = ({ value, setValue }) => {
         value={value}
         className="h-full w-full lg:w-[112px] outline-none text-[18px] border border-divider text-center"
         placeholder="1"
-        onChange={handleInputChange}
+        onChange={debouncedHandleInputChange}
         type="number"
         min={1}
         max={100}

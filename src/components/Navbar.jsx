@@ -6,10 +6,10 @@ import { navLinks } from "../constants";
 
 import logo from "/logo.svg";
 import cart from "/cart.svg";
-import { useCartAmount } from "../hooks/useCartAmount";
+import { useCartQuantity } from "../hooks/useCartQuantity";
 
 const Navbar = () => {
-  const { amount } = useCartAmount();
+  const { quantity } = useCartQuantity();
   const underlineStyles =
     "after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:h-[2px] after:bg-green after:transition-all after:duration-300";
 
@@ -55,11 +55,11 @@ const Navbar = () => {
             <Link to="shopping-cart" className="cart relative">
               <img className="scale-[.8] xs:scale-100" src={cart} alt="cart" />
               <div
-                className={`absolute ${
-                  amount > 0 ? "flex" : "hidden"
-                } items-center justify-center top-2 left-0 added-products w-7 h-7 rounded-full bg-green text-white`}
+                className={`added-products absolute ${
+                  quantity > 0 ? "flex" : "hidden"
+                } items-center justify-center text-[14px] p-4 top-2 left-0 w-7 h-7 rounded-full bg-green text-white`}
               >
-                {amount}
+                {quantity}
               </div>
             </Link>
 

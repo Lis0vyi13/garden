@@ -1,8 +1,9 @@
 import PageWrapper from "../layouts/PageWrapper";
 
 import SingleProduct from "../components/SingleProduct";
+import { memo } from "react";
 
-const SingleProductPage = () => {
+const SingleProductPageInitial = () => {
   return (
     <PageWrapper block={`single-product`}>
       <SingleProduct />
@@ -10,4 +11,5 @@ const SingleProductPage = () => {
   );
 };
 
+const SingleProductPage = memo(SingleProductPageInitial);
 export default SingleProductPage;
