@@ -6,13 +6,16 @@ import Button from "../ui/Button";
 
 import cancel from "/cancel.svg";
 import success from "/success.svg";
+import { useActions } from "../hooks/useActions";
 
 const CompletionPage = ({ result }) => {
+  const { clearState } = useActions();
   const src = result === "success" ? success : cancel;
   const alt = result === "success" ? "success" : "cancel";
   const isSuccess = result === "success";
 
-  if (isSuccess) localStorage.clear();
+  if (isSuccess) clearState();
+
   return (
     <PageWrapper block={`${alt}`}>
       <div className="w-full flex flex-col justify-center items-center">

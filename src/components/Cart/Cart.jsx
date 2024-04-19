@@ -61,9 +61,7 @@ const Cart = () => {
             <div className="cart-button h-full flex mt-6">
               <Button
                 disabled={isOrdered}
-                onClick={() => {
-                  onPayment();
-                }}
+                onClick={onPayment}
                 text="Order"
                 extraClassName={`w-full self-end`}
                 isGreen
