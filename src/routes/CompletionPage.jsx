@@ -11,6 +11,8 @@ const CompletionPage = ({ result }) => {
   const src = result === "success" ? success : cancel;
   const alt = result === "success" ? "success" : "cancel";
   const isSuccess = result === "success";
+
+  if (isSuccess) localStorage.clear();
   return (
     <PageWrapper block={`${alt}`}>
       <div className="w-full flex flex-col justify-center items-center">

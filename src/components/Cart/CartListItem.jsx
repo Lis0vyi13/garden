@@ -6,7 +6,7 @@ import { useCartActions } from "../../hooks/useCartActions";
 
 const CartListItem = ({ item }) => {
   const [value, setValue] = useState(item.quantity);
-  const { price, discount, quantity, id } = item;
+  const { price, discount, quantity, id, name, img } = item;
   const { removeCartItem } = useCartActions();
 
   const currentPrice = discount ? Math.round(price - price * discount) : price;
@@ -16,13 +16,13 @@ const CartListItem = ({ item }) => {
       <div className="cart-list-item__img flexitems-center justify-center h-full xsSm:min-w-[200px] border-r border-divider">
         <img
           className="object-cover h-full w-full aspect-square rounded-l-xl rounded-r-xl xsSm:rounded-r-none"
-          src={item.img}
-          alt={item.name}
+          src={img}
+          alt={name}
         />
       </div>
       <div className="cart-list-item__info flex flex-col w-full p-6 gap-6">
         <div className="flex items-center justify-between -mt-2 xsSm:mt-0">
-          <h1 className="text-[20px]">{item.name}</h1>
+          <h1 className="text-[20px]">{name}</h1>
           <button
             onClick={() => removeCartItem(item)}
             className="remove p-2 rounded-full duration-300 hover:bg-hoverLightGray"

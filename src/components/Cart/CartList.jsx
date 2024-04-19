@@ -11,8 +11,8 @@ const CartList = ({ list }) => {
         className={`cart-list duration-300 flex flex-col ${
           isExpanded
             ? "h-auto"
-            : `h-[545px] xxs:h-[606px] xsSm:h-[753px] ${
-                items.length > 3 ? "md:h-[573px]" : "md:h-min"
+            : `h-[545px] xxs:h-[606px] ${
+                items.length > 3 ? "xsSm:h-[753px] md:h-[573px]" : "xsSm:h-min"
               }`
         } overflow-hidden gap-4`}
       >
