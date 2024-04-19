@@ -7,7 +7,11 @@ const MainPage = () => {
   return (
     <section className="flex flex-col gap-10 md:gap-20">
       <Hero />
-      <Categories withButton={true} />
+      <section className="categories">
+        <div className="container">
+          <Categories withButton={true} />
+        </div>
+      </section>
       <Discount />
       <Sale />
     </section>

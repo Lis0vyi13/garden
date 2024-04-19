@@ -6,7 +6,7 @@ const Title = ({ text, buttonText = "", extras, to }) => {
 
   const titleClasses = `font-bold xs:whitespace-nowrap text-2xl sm:text-3xl md:text-4xl lg:text-5xl ${extras}`;
   const buttonClasses =
-    "relative duration-300 bg-white text-[13px] xs:text-[15px] min-w-[125px] xs:min-w-[160px] rounded-[6px] hover:bg-green hover:text-white text-gray py-[8px] px-4 bg-transparent border-divider border-2";
+    "relative xs:whitespace-nowrap duration-300 bg-white text-[13px] xs:text-[15px] min-w-[125px] xs:min-w-[160px] rounded-[6px] hover:bg-green hover:text-white text-gray py-[8px] px-4 bg-transparent border-divider border-2";
 
   return (
     <>

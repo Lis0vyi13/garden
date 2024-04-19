@@ -25,7 +25,6 @@ const SingleProduct = () => {
   }, [id]);
 
   const { name, img, price, discount, description } = product;
-
   const currentPrice = discount ? Math.round(price - price * discount) : price;
 
   const activeButtonStyles = isAdded

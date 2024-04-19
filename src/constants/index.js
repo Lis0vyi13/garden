@@ -99,6 +99,7 @@ export const products = [
     discount: 0.34,
     type: "decor",
     description: "Decorate your garden with this elegant flower basket.",
+    api_key: "price_1P7LxvDgyJmtJe68ZwwmtLtk",
   },
   {
     id: 2,
@@ -108,6 +109,7 @@ export const products = [
     discount: 0.25,
     type: "decor",
     description: "Keep your aquarium secure with this reliable lock.",
+    api_key: "price_1P7M0yDgyJmtJe68SsNx31Gj",
   },
   {
     id: 3,
@@ -117,6 +119,7 @@ export const products = [
     discount: null,
     type: "fertilizer",
     description: "Nourish your plants naturally with our organic fertilizer.",
+    api_key: "price_1P7M2fDgyJmtJe68wRWre5Vb",
   },
   {
     id: 4,
@@ -127,6 +130,7 @@ export const products = [
     type: "tools-and-equipment",
     description:
       "Trim your plants with precision using these quality secateurs.",
+    api_key: "price_1P7M3QDgyJmtJe68eKqVHuBM",
   },
   {
     id: 5,
@@ -137,6 +141,7 @@ export const products = [
     type: "tools-and-equipment",
     description:
       "Gather your berries efficiently with this durable plastic collection set.",
+    api_key: "price_1P7M4bDgyJmtJe68rXbJ9UjI",
   },
   {
     id: 6,
@@ -147,6 +152,7 @@ export const products = [
     type: "tools-and-equipment",
     description:
       "Protect your hands while gardening with these comfortable black gloves.",
+    api_key: "price_1P7M5DDgyJmtJe68TLF7uhJ6",
   },
   {
     id: 7,
@@ -157,6 +163,7 @@ export const products = [
     type: "tools-and-equipment",
     description:
       "Cut through tough branches effortlessly with this sickle-shaped hacksaw.",
+    api_key: "price_1P7M62DgyJmtJe68RKecI6yD",
   },
   {
     id: 8,
@@ -167,6 +174,7 @@ export const products = [
     type: "tools-and-equipment",
     description:
       "Dig deep into the soil with ease using this sturdy bayonet shovel.",
+    api_key: "price_1P7LlnDgyJmtJe68av6WpMD2",
   },
   {
     id: 9,
@@ -177,6 +185,7 @@ export const products = [
     type: "fertilizer",
     description:
       "Keep your flowers blooming with our specially formulated liquid fertilizer.",
+    api_key: "price_1P7M6oDgyJmtJe68Ykw2OfSY",
   },
   {
     id: 10,
@@ -187,6 +196,7 @@ export const products = [
     type: "fertilizer",
     description:
       "Promote healthy growth in your vegetables with our granular fertilizer.",
+    api_key: "price_1P7M7iDgyJmtJe68xxSCfdN6",
   },
   {
     id: 11,
@@ -197,6 +207,7 @@ export const products = [
     type: "protective-products-and-septic-tanks",
     description:
       "Keep pesky insects away from your garden with our effective repellent spray.",
+    api_key: "price_1P7M8RDgyJmtJe689cqsMRy3",
   },
   {
     id: 12,
@@ -207,6 +218,7 @@ export const products = [
     type: "tools-and-equipment",
     description:
       "Turn and aerate your soil easily with our durable garden pitchfork.",
+    api_key: "price_1P7M9ADgyJmtJe68wBs76y7p",
   },
 
   {
@@ -218,6 +230,7 @@ export const products = [
     type: "tools-and-equipment",
     description:
       "Monitor the temperature of your garden in style with our souvenir thermometer.",
+    api_key: "price_1P7M9tDgyJmtJe68f2Ex0Y4o",
   },
   {
     id: 14,
@@ -228,6 +241,7 @@ export const products = [
     type: "decor",
     description:
       "Add a touch of elegance to your garden with this beautifully crafted decorative bridge.",
+    api_key: "price_1P7MAXDgyJmtJe68VlFggk6Y",
   },
   {
     id: 15,
@@ -238,6 +252,7 @@ export const products = [
     type: "protective-products-and-septic-tanks",
     description:
       "Keep your hands clean and germ-free while working in your garden with our antibacterial hand sanitizer.",
+    api_key: "price_1P7MBbDgyJmtJe68cp4Ip13C",
   },
   {
     id: 16,
@@ -248,6 +263,7 @@ export const products = [
     type: "protective-products-and-septic-tanks",
     description:
       "Maintain the health of your septic tank with our convenient treatment tablets.",
+    api_key: "price_1P7MDIDgyJmtJe68X05AIKYU",
   },
   {
     id: 17,
@@ -257,6 +273,7 @@ export const products = [
     discount: null,
     type: "planting-material",
     description: "Keep your plants hydrated for longer with our hydrogel.",
+    api_key: "price_1P7MESDgyJmtJe68u2E5t2Vr",
   },
   {
     id: 18,
@@ -267,6 +284,7 @@ export const products = [
     type: "planting-material",
     description:
       "Provide your plants with the perfect growing medium using our high-quality potting soil mix.",
+    api_key: "price_1P7MFGDgyJmtJe68lGlnTVIF",
   },
   {
     id: 19,
@@ -277,6 +295,7 @@ export const products = [
     type: "planting-material",
     description:
       "Start your seeds off right with our durable and reusable starter trays.",
+    api_key: "price_1P7MFyDgyJmtJe68c2qRzIdU",
   },
   {
     id: 20,
@@ -286,6 +305,7 @@ export const products = [
     discount: 0.15,
     type: "planting-material",
     description: "Improve soil aeration and drainage with our premium perlite.",
+    api_key: "price_1P7MGmDgyJmtJe68uC4GXXOt",
   },
   {
     id: 21,
@@ -296,6 +316,7 @@ export const products = [
     type: "pots-and-planters",
     description:
       "Display your favorite flowers in style with our elegant ceramic flower pot.",
+    api_key: "price_1P7MHVDgyJmtJe68fen3kryo",
   },
   {
     id: 22,
@@ -306,6 +327,7 @@ export const products = [
     type: "pots-and-planters",
     description:
       "Add some greenery to your home with our versatile hanging planter basket.",
+    api_key: "price_1P7MIKDgyJmtJe68DJOOysCL",
   },
   {
     id: 23,
@@ -316,6 +338,7 @@ export const products = [
     type: "pots-and-planters",
     description:
       "Enhance your outdoor space with our stylish decorative garden planter.",
+    api_key: "price_1P7MJADgyJmtJe68PApw1GdF",
   },
   {
     id: 24,
@@ -326,6 +349,7 @@ export const products = [
     type: "pots-and-planters",
     description:
       "Brighten up your windows with our charming window box planter.",
+    api_key: "price_1P7MJXDgyJmtJe68KYzZb0w5",
   },
 ];
 

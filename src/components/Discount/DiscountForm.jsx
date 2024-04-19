@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { Controller, useForm } from "react-hook-form";
 import InputMask from "@mona-health/react-input-mask";
 
@@ -81,11 +82,14 @@ const DiscountForm = () => {
           type="submit"
         />
       </form>
-      <Modal
-        isActive={isModalActive}
-        setIsActive={setisModalActive}
-        type="successDiscount"
-      />
+      {createPortal(
+        <Modal
+          isActive={isModalActive}
+          setIsActive={setisModalActive}
+          type="successDiscount"
+        />,
+        document.body,
+      )}
     </>
   );
 };

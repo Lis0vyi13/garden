@@ -12,6 +12,7 @@ const ProductsCardItem = ({
   id,
   type,
   description,
+  api_key,
 }) => {
   const { isAdded, toggleCart } = useCartActions(id);
   const [isHover, setIsHover] = useState(false);
@@ -20,7 +21,16 @@ const ProductsCardItem = ({
   const url = `/${type}/${name}/${id}`;
 
   const titleName = name.length > 22 ? name.slice(0, 21) + "..." : name;
-  const product = { name, img, price, discount, id, type, description };
+  const product = {
+    name,
+    img,
+    price,
+    discount,
+    id,
+    type,
+    description,
+    api_key,
+  };
 
   return (
     <div

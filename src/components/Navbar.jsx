@@ -1,14 +1,16 @@
+import { memo } from "react";
 import { NavLink, Link } from "react-router-dom";
 
 import Burger from "./Burger";
+
+import { useCartQuantity } from "../hooks/useCartQuantity";
 
 import { navLinks } from "../constants";
 
 import logo from "/logo.svg";
 import cart from "/cart.svg";
-import { useCartQuantity } from "../hooks/useCartQuantity";
 
-const Navbar = () => {
+const NavbarInitial = () => {
   const { quantity } = useCartQuantity();
   const underlineStyles =
     "after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:h-[2px] after:bg-green after:transition-all after:duration-300";
@@ -76,4 +78,5 @@ const Navbar = () => {
   );
 };
 
+const Navbar = memo(NavbarInitial);
 export default Navbar;

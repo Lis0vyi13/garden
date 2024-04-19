@@ -27,7 +27,7 @@ const Modal = ({ type, isActive, setIsActive }) => {
             damping: 20,
             stiffness: 150,
           }}
-          className="fixed bg-green z-50 right-1 left-1 xs:right-6 sm:left-[unset] bottom-6 px-8 py-5 duration-500 text-white sm:w-[520px] rounded-xl"
+          className="fixed bg-green z-[100] right-1 left-1 xs:right-4 sm:left-[unset] bottom-6 px-8 py-5 duration-500 text-white sm:w-[520px] rounded-xl"
         >
           <h1 className="font-semibold pb-1 xs:pb-0 text-[24px] xs:text-[32px]">
             Congratulations!
