@@ -70,7 +70,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className="-mt-4">
+        <div className="-mt-2">
           <p>Looks like you have no items in your basket currently.</p>
           <Link to="/all-products?from=&to=&discount=&sortBy=default&category=All+products">
             <Button

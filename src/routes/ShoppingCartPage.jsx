@@ -2,7 +2,7 @@ import Cart from "../components/Cart/Cart";
 
 import PageWrapper from "../layouts/PageWrapper";
 
-const ShoppingCart = () => {
+const ShoppingCartPage = () => {
   return (
     <PageWrapper block="shopping-cart">
       <Cart />
@@ -10,4 +10,4 @@ const ShoppingCart = () => {
   );
 };
 
-export default ShoppingCart;
+export default ShoppingCartPage;

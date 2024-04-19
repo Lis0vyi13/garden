@@ -10,7 +10,7 @@ const CateroriesPage = lazy(() => import("./routes/CateroriesPage"));
 const AllProductsPage = lazy(() => import("./routes/AllProductsPage"));
 const Page404 = lazy(() => import("./routes/Page404"));
 const SingleProductPage = lazy(() => import("./routes/SingleProductPage"));
-const ShoppingCart = lazy(() => import("./routes/ShoppingCart"));
+const ShoppingCartPage = lazy(() => import("./routes/ShoppingCartPage"));
 const CompletionPage = lazy(() => import("./routes/CompletionPage"));
 
 function App() {
@@ -54,7 +54,7 @@ function App() {
             path="shopping-cart"
             element={
               <Suspense fallback={<Loader />}>
-                <ShoppingCart />
+                <ShoppingCartPage />
               </Suspense>
             }
           />
