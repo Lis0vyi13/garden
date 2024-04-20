@@ -12,9 +12,8 @@ import Button from "../../ui/Button";
 import { discountFormInputs } from "../../constants";
 
 const DiscountForm = () => {
-  const { handleSubmit, control, reset } = useForm({ mode: "onChange" });
-
   const [isModalActive, setisModalActive] = useState(false);
+  const { handleSubmit, control, reset } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
     if (data) {

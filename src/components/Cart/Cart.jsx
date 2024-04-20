@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { loadStripe } from "@stripe/stripe-js";
 import { motion, useAnimation } from "framer-motion";
 
 import CartList from "./CartList";
@@ -11,6 +10,7 @@ import Button from "../../ui/Button";
 import { useCart } from "../../hooks/useCart";
 import { useCartQuantity } from "../../hooks/useCartQuantity";
 import { useCartTotal } from "../../hooks/useCartTotal";
+import { handlePayment } from "../../utils/handlePayment";
 
 const Cart = () => {
   const { store } = useCart();
@@ -23,26 +23,9 @@ const Cart = () => {
     controls.start({ opacity: 1, y: 0 });
   }, [controls]);
 
-  async function onPayment() {
-    setIsOrdered(true);
-
-    const stripe = await loadStripe(
-      "pk_test_51P7L3KDgyJmtJe68W3khXK9oCXDyUzXPP1dOb18twBORDwOgw2uTm9X1lGADHuRvwtt4o6HMHnGXcHfIdHUtTbL600xjCRAbJv",
-    );
-    if (stripe) {
-      await stripe.redirectToCheckout({
-        lineItems: store.items.map((item) => ({
-          price: item.api_key,
-          quantity: item.quantity,
-        })),
-        mode: "payment",
-        successUrl: "https://lis0vyi13.github.io/garden/#/success",
-        cancelUrl: "https://lis0vyi13.github.io/garden/#/cancel",
-      });
-    }
-
-    setIsOrdered(false);
-  }
+  const onPayment = async () => {
+    await handlePayment(store, setIsOrdered);
+  };
 
   return (
     <section className="cart flex flex-col gap-10">
@@ -86,7 +69,13 @@ const Cart = () => {
           </motion.div>
         </div>
       ) : (
-        <div className="-mt-2">
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.3 }}
+          className="-mt-2"
+        >
           <p>Looks like you have no items in your basket currently.</p>
           <Link to="/all-products?from=&to=&discount=&sortBy=default&category=All+products">
             <Button
@@ -95,7 +84,7 @@ const Cart = () => {
               text="Continue Shopping"
             />
           </Link>
-        </div>
+        </motion.div>
       )}
     </section>
   );
