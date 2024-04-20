@@ -1,0 +1,1 @@
+import{j as s}from"./index-CiARpoU3.js";const c=({block:e,blockClassname:a,children:r})=>s.jsx("section",{className:`${e}${a||""}`,children:s.jsx("div",{className:"container",children:s.jsx("div",{className:"flex flex-col gap-10 md:gap-20 pt-7 md:pt-12",children:r})})});export{c as P};
