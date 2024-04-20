@@ -4,7 +4,7 @@ import DiscountForm from "./DiscountForm";
 
 import Title from "../../ui/Title";
 
-import formImg from "/form-content-img.png";
+import formImg from "/images/form-content-img.webp";
 
 const Discount = () => {
   return (

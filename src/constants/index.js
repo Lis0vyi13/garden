@@ -1,28 +1,28 @@
 // Categories
-import fertilizer from "/categories/fertilizer.png";
-import Protective_products from "/categories/Protective_products.png";
-import Planting_material from "/categories/Planting_material.png";
-import Tools_equipment from "/categories/Tools_equipment.png";
-import pots_and_planters from "/categories/pots_and_planters.png";
+import fertilizer from "/categories/fertilizer.webp";
+import Protective_products from "/categories/Protective_products.webp";
+import Planting_material from "/categories/Planting_material.webp";
+import Tools_equipment from "/categories/Tools_equipment.webp";
+import pots_and_planters from "/categories/pots_and_planters.webp";
 import decor from "/categories/decor.webp";
 // Products
 import secateurs from "/products/secateurs.webp";
-import aquarium_lock from "/products/Aquarium_lock.jpg";
-import bayonet_shovel from "/products/bayonet-shovel.jpg";
+import aquarium_lock from "/products/Aquarium_lock.webp";
+import bayonet_shovel from "/products/bayonet-shovel.webp";
 import berries_collection from "/products/berries-collection.webp";
-import Decorative_bridge from "/products/Decorative_bridge.jpg";
+import Decorative_bridge from "/products/Decorative_bridge.webp";
 import Flower_basket from "/products/Flower_basket.webp";
-import garden_pitchfork from "/products/garden-pitchfork.jpg";
+import garden_pitchfork from "/products/garden-pitchfork.webp";
 import gloves from "/products/gloves.webp";
-import hacksaw from "/products/hacksaw.jpg";
-import souvenir_thermometer from "/products/souvenir-thermometer.png";
-import organic_fertilizer from "/products/organic_fertilizer.jpg";
-import liquid_fertilizer_for_flowers from "/products/liquid_fertilizer_for_flowers.jpg";
+import hacksaw from "/products/hacksaw.webp";
+import souvenir_thermometer from "/products/souvenir-thermometer.webp";
+import organic_fertilizer from "/products/organic_fertilizer.webp";
+import liquid_fertilizer_for_flowers from "/products/liquid_fertilizer_for_flowers.webp";
 import granular_fertilizer from "/products/granular_fertilizer.webp";
-import insect_repellent from "/products/insect_repellent.jpg";
-import hand_sanitizer from "/products/hand_sanitizer.jpg";
+import insect_repellent from "/products/insect_repellent.webp";
+import hand_sanitizer from "/products/hand_sanitizer.webp";
 import septic_tank_tablets from "/products/septic_tank_tablets.webp";
-import hydrogel from "/products/hydrogel.jpg";
+import hydrogel from "/products/hydrogel.webp";
 import perlite from "/products/perlite.webp";
 import seed_trays from "/products/seed_trays.webp";
 import potting_soil from "/products/potting_soil.webp";
@@ -31,7 +31,7 @@ import decorative_planter from "/products/decorative_planter.webp";
 import hanging_basket from "/products/hanging_basket.webp";
 import ceramic_pot from "/products/ceramic_pot.webp";
 
-import telegram from "/telegram.svg";
+import telegram from "/icons/telegram.svg";
 
 export const navLinks = [
   { name: "Main Page", href: "/" },

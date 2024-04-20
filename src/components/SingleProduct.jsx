@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import Counter from "./Counter";
 
@@ -39,6 +40,10 @@ const SingleProduct = () => {
 
   return (
     <section className={`${name?.toLowerCase()}`}>
+      <Helmet>
+        <title>{name}</title>
+        <meta name="description" content={`Product: ${name}`} />
+      </Helmet>
       <div className="w-full flex flex-col items-center md:items-start md:flex-row gap-6 md:gap-10">
         <div className="product-img md:w-1/2 h-[320px] xxs:h-[435px] md:h-[470px] lg:h-[570px] flex items-center justify-center">
           <img

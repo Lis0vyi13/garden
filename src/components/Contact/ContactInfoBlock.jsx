@@ -26,6 +26,8 @@ const ContactInfoBlock = ({ contacts }) => {
                   className="mt-2 scale-90"
                   src={contact.img}
                   alt={contact.title}
+                  width={48}
+                  height={48}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}

@@ -8,8 +8,8 @@ import { useCartQuantity } from "../hooks/useCartQuantity";
 
 import { navLinks } from "../constants";
 
-import logo from "/logo.svg";
-import cart from "/cart.svg";
+import logo from "/icons/logo.svg";
+import cart from "/icons/cart.svg";
 
 const NavbarInitial = () => {
   const { quantity } = useCartQuantity();
@@ -49,6 +49,8 @@ const NavbarInitial = () => {
             <Link to="/">
               <img
                 onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+                width={70}
+                height={73}
                 src={logo}
                 alt="garden logo"
               />
@@ -61,7 +63,13 @@ const NavbarInitial = () => {
 
           <div className="flex gap-2 xs:gap-4 items-center cursor-pointer">
             <Link to="shopping-cart" className="cart relative">
-              <img className="scale-[.8] xs:scale-100" src={cart} alt="cart" />
+              <img
+                width={48}
+                height={48}
+                className="scale-[.8] xs:scale-100"
+                src={cart}
+                alt="cart"
+              />
               <div
                 className={`added-products absolute ${
                   quantity > 0 ? "flex" : "hidden"

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import arrow_up from "/arrow-up.png";
+import arrow_up from "/icons/arrow-up.png";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);

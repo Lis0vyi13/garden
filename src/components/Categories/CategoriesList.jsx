@@ -22,7 +22,9 @@ const GridList = ({ list, extra }) => {
                 <img
                   className="relative"
                   src={item.href}
-                  alt={item.name}
+                  alt={item.description}
+                  width={316}
+                  height={348}
                   style={{
                     position: "absolute",
                     top: 0,

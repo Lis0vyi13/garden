@@ -3,12 +3,18 @@ import { memo } from "react";
 import PageWrapper from "../layouts/PageWrapper";
 
 import SingleProduct from "../components/SingleProduct";
+import Footer from "../components/Footer";
 
 const SingleProductPageInitial = () => {
   return (
-    <PageWrapper block={`single-product`}>
-      <SingleProduct />
-    </PageWrapper>
+    <>
+      <main className="main">
+        <PageWrapper block={`single-product`}>
+          <SingleProduct />
+        </PageWrapper>
+      </main>
+      <Footer />
+    </>
   );
 };
 

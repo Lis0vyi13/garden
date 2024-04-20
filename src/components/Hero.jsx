@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import Button from "../ui/Button";
 
-import bg from "/bg.webp";
+import bg from "/images/bg.webp";
 
 const Hero = () => {
   return (
