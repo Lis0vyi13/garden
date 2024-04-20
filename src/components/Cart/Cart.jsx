@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
+import { motion, useAnimation } from "framer-motion";
 
 import CartList from "./CartList";
 
@@ -16,6 +17,11 @@ const Cart = () => {
   const { quantity } = useCartQuantity();
   const { total } = useCartTotal();
   const [isOrdered, setIsOrdered] = useState(false);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({ opacity: 1, y: 0 });
+  }, [controls]);
 
   async function onPayment() {
     setIsOrdered(true);
@@ -23,15 +29,17 @@ const Cart = () => {
     const stripe = await loadStripe(
       "pk_test_51P7L3KDgyJmtJe68W3khXK9oCXDyUzXPP1dOb18twBORDwOgw2uTm9X1lGADHuRvwtt4o6HMHnGXcHfIdHUtTbL600xjCRAbJv",
     );
-    await stripe.redirectToCheckout({
-      lineItems: store.items.map((item) => ({
-        price: item.api_key,
-        quantity: item.quantity,
-      })),
-      mode: "payment",
-      successUrl: "https://lis0vyi13.github.io/garden/#/success",
-      cancelUrl: "https://lis0vyi13.github.io/garden/#/cancel",
-    });
+    if (stripe) {
+      await stripe.redirectToCheckout({
+        lineItems: store.items.map((item) => ({
+          price: item.api_key,
+          quantity: item.quantity,
+        })),
+        mode: "payment",
+        successUrl: "https://lis0vyi13.github.io/garden/#/success",
+        cancelUrl: "https://lis0vyi13.github.io/garden/#/cancel",
+      });
+    }
 
     setIsOrdered(false);
   }
@@ -44,7 +52,11 @@ const Cart = () => {
           <div className="xl:w-[60%]">
             <CartList list={store} />
           </div>
-          <div className="bg-lightGray h-full rounded-xl xl:w-[40%] p-7">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={controls}
+            className="bg-lightGray h-full rounded-xl xl:w-[40%] p-7"
+          >
             <h3 className="font-bold text-4xl">Order details</h3>
             <div className="pt-4 gap-6 flex flex-col xs:flex-row justify-between">
               <div className="w-full xs:w-1/2">
@@ -63,11 +75,15 @@ const Cart = () => {
                 disabled={isOrdered}
                 onClick={onPayment}
                 text="Order"
-                extraClassName={`w-full self-end`}
+                extraClassName={`w-full self-end ${
+                  isOrdered
+                    ? "bg-gray cursor-not-allowed"
+                    : "bg-green hover:bg-hoverGreen"
+                }`}
                 isGreen
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       ) : (
         <div className="-mt-2">

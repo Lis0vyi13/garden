@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import Burger from "./Burger";
 
@@ -37,7 +38,12 @@ const NavbarInitial = () => {
 
   return (
     <header className="header sticky bg-white z-50 top-0 border-b-[1px] border-divider">
-      <div className="container">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="container"
+      >
         <div className="flex justify-between items-center py-4">
           <div className="logo">
             <Link to="/">
@@ -73,7 +79,7 @@ const NavbarInitial = () => {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </header>
   );
 };

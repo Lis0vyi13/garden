@@ -1,4 +1,5 @@
 import { useState, useEffect, memo } from "react";
+import { motion } from "framer-motion";
 
 import ProductsCardItem from "./ProductsCardItem";
 
@@ -27,18 +28,28 @@ const ProductsListInitial = ({ list }) => {
   }, [list, paginationValue]);
 
   return (
-    <div className="flex flex-col -mt-8 md:mt-0 sale__cards-wrapper justify-center">
-      <div
+    <motion.div
+      className="flex flex-col -mt-8 md:mt-0 sale__cards-wrapper justify-center"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
+      <motion.div
         className={`sale__cards w-fit xl:w-full grid self-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8 ${
           currentList.length > 0 ? "justify-items-center" : ""
         } `}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        viewport={{ once: true }}
       >
         {currentList.length > 0 ? (
           currentList
         ) : (
           <span className="text-left">No matching products</span>
         )}
-      </div>
+      </motion.div>
       {isLoading && <Loader />}
 
       {list.length > paginationValue.max && (
@@ -54,7 +65,7 @@ const ProductsListInitial = ({ list }) => {
           }
         />
       )}
-    </div>
+    </motion.div>
   );
 };
 

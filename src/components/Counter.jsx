@@ -1,22 +1,12 @@
-import { useCartActions } from "../hooks/useCartActions";
-
-const Counter = ({ value, setValue, id }) => {
-  const { changeItemQuantity } = useCartActions();
-
+const Counter = ({ value, setValue }) => {
   const onSubtract = () => {
-    setValue((prev) => {
-      const newValue = Math.max(+prev - 1, 1);
-      if (id) changeItemQuantity({ id, value: newValue });
-      return newValue;
-    });
+    const newValue = Math.max(value - 1, 1);
+    setValue(newValue);
   };
 
   const onSum = () => {
-    setValue((prev) => {
-      const newValue = Math.min(Math.max(+prev + 1, 1), 100);
-      if (id) changeItemQuantity({ id, value: newValue });
-      return newValue;
-    });
+    const newValue = Math.min(Math.max(value + 1, 1), 100);
+    setValue(newValue);
   };
 
   const debouncedHandleInputChange = (e) => {
@@ -27,8 +17,6 @@ const Counter = ({ value, setValue, id }) => {
       newValue = 100;
     }
     setValue(newValue);
-
-    if (id) changeItemQuantity({ id, value: newValue });
   };
 
   return (

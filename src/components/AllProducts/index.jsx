@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import { motion } from "framer-motion";
+
 import ProductsList from "./ProductsTemplates/ProductsList";
 
 import AllProductsSort from "./ProductsSort";
@@ -31,7 +33,13 @@ const AllProducts = () => {
 
   return (
     <div className="relative all-products h-full">
-      <div className="fixed top-[103px] left-0 px-5 py-4 md:relative md:top-0 md:px-0 md:py-0 bg-white z-40 w-full flex items-center justify-between">
+      <motion.div
+        className="fixed top-[103px] left-0 px-5 py-4 md:relative md:top-0 md:px-0 md:py-0 bg-white z-40 w-full flex items-center justify-between"
+        initial={{ y: -50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
         <Title text={title} />
         <Button
           onClick={() => setisFiltersOpen(true)}
@@ -39,12 +47,16 @@ const AllProducts = () => {
           extraClassName="px-6 py-[10px] md:hidden"
           isGreen
         />
-      </div>
+      </motion.div>
       <div ref={menuRef} className="relative flex items-center justify-between">
-        <div
+        <motion.div
           className={`${
-            isFiltersOpen ? "translate-x-[1%]" : "translate-x-[120%]"
+            isFiltersOpen ? "translate-x-0" : "translate-x-full"
           } flex flex-col duration-300 right-0 top-[110px] rounded-xl p-4 fixed border-2 bg-white z-40 md:hidden`}
+          initial={{ x: "100%" }}
+          whileInView={{ x: isFiltersOpen ? "0%" : "100%" }}
+          transition={{ duration: 0.3 }}
+          viewport={{ once: true }}
         >
           <AllProductsSort
             setIsUpdating={setIsUpdating}
@@ -55,7 +67,7 @@ const AllProducts = () => {
             text="Close"
             extraClassName="text-white py-[12px] bg-red hover:bg-hoverRed mt-4"
           />
-        </div>
+        </motion.div>
       </div>
       <div className="mt-16 md:mt-10 mb-2">
         <AllProductsSort
@@ -64,7 +76,15 @@ const AllProducts = () => {
           setOptions={setSortOptions}
         />
       </div>
-      {isUpdating ? <Loader /> : <ProductsList list={sortedProducts} />}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="mt-16 md:mt-10 mb-2"
+        viewport={{ once: true }}
+      >
+        {isUpdating ? <Loader /> : <ProductsList list={sortedProducts} />}
+      </motion.div>
     </div>
   );
 };

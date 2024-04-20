@@ -5,11 +5,17 @@ import Counter from "../Counter";
 import { useCartActions } from "../../hooks/useCartActions";
 
 const CartListItem = ({ item }) => {
-  const [value, setValue] = useState(item.quantity);
   const { price, discount, quantity, id, name, img } = item;
-  const { removeCartItem } = useCartActions();
+  const { removeCartItem, changeItemQuantity } = useCartActions();
 
   const currentPrice = discount ? Math.round(price - price * discount) : price;
+
+  const [quantityValue, setQuantityValue] = useState(item.quantity);
+
+  const handleQuantityChange = (newValue) => {
+    setQuantityValue(newValue);
+    if (id) changeItemQuantity({ id, value: newValue });
+  };
 
   return (
     <div className="w-[290px] xxs:w-[350px] xsSm:w-auto xsSm:h-[240px] md:h-[180px] flex flex-col xsSm:flex-row gap-4 border border-divider rounded-xl">
@@ -33,9 +39,13 @@ const CartListItem = ({ item }) => {
             </div>
           </button>
         </div>
-        <div className="flex flex-col md:flex-row justify-between xl:justify-normal gap-6">
-          <div className="w-[230px]">
-            <Counter id={id} value={value} setValue={setValue} />
+        <div className="flex -mt-2 flex-col-reverse md:flex-row justify-between xl:justify-normal gap-6">
+          <div className="w-full md:w-[230px]">
+            <Counter
+              id={id}
+              value={quantityValue}
+              setValue={handleQuantityChange}
+            />
           </div>
           <div
             className={`flex ${

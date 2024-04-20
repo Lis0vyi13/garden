@@ -1,13 +1,24 @@
-import { useState } from "react";
-import Button from "../../ui/Button";
+import { useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+
 import CartListItem from "./CartListItem";
+
+import Button from "../../ui/Button";
 
 const CartList = ({ list }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { items } = list;
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({ opacity: 1, y: 0 });
+  }, [controls]);
   return (
     <>
-      <ul
+      <motion.ul
+        initial={{ opacity: 0 }}
+        transition={{ delay: 0.1, duration: 0.2 }}
+        animate={controls}
         className={`cart-list duration-300 flex flex-col ${
           isExpanded
             ? "h-auto"
@@ -24,7 +35,7 @@ const CartList = ({ list }) => {
             <CartListItem item={item} />
           </li>
         ))}
-      </ul>
+      </motion.ul>
       <div
         className={`flex items-center justify-center mt-2 ${
           items.length > 3

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const GridList = ({ list, extra }) => {
   return (
@@ -7,10 +8,11 @@ const GridList = ({ list, extra }) => {
     >
       {list.map((item) => {
         return (
-          <li
+          <motion.li
             key={item.name}
             className="category w-[300px] xs:w-[316px] h-[380px] md:h-[420px] duration-300 "
             style={{ position: "relative" }}
+            whileHover={{ scale: 1.05, transition: { duration: 0.15 } }}
           >
             <Link
               to={item.url}
@@ -34,7 +36,7 @@ const GridList = ({ list, extra }) => {
                 {item.name}
               </h3>
             </Link>
-          </li>
+          </motion.li>
         );
       })}
     </ul>

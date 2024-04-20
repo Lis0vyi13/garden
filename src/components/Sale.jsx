@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { motion } from "framer-motion";
 
 import ProductsList from "./AllProducts/ProductsTemplates/ProductsList";
 
@@ -16,7 +17,13 @@ const Sale = () => {
     [],
   );
   return (
-    <section className="sale">
+    <motion.section
+      className="sale"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true, amount: 0.25 }}
+    >
       <div className="container">
         <Title
           to="all-products?from=&to=&discount=true&sortBy=default"
@@ -25,7 +32,7 @@ const Sale = () => {
         />
         <ProductsList list={sales} />
       </div>
-    </section>
+    </motion.section>
   );
 };
 
