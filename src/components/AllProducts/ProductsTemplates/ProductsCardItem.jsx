@@ -73,9 +73,9 @@ const ProductsCardItem = ({
               ${currentValue}
             </h1>
             {discount && (
-              <h4 className="text-[20px] text-gray line-through mt-3">
+              <p className="text-[20px] text-gray line-through mt-3">
                 ${price}
-              </h4>
+              </p>
             )}
           </div>
         </div>

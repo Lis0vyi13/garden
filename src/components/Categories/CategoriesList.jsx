@@ -22,7 +22,7 @@ const GridList = ({ list, extra }) => {
                 <img
                   className="relative"
                   src={item.href}
-                  alt={item.description}
+                  alt={`This is a ${item.name} category`}
                   width={316}
                   height={348}
                   style={{
@@ -34,9 +34,9 @@ const GridList = ({ list, extra }) => {
                   }}
                 />
               </div>
-              <h3 className="text-xl duration-100 hover:text-green text-center max-w-[315px]">
+              <h2 className="text-xl duration-100 hover:text-green text-center max-w-[315px]">
                 {item.name}
-              </h3>
+              </h2>
             </Link>
           </motion.li>
         );

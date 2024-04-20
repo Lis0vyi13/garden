@@ -12,7 +12,7 @@ const ContactInfoBlock = ({ contacts }) => {
           transition={{ delay: index * 0.1, duration: 0.5 }}
           viewport={{ once: true, amount: 0.25 }}
         >
-          <h5 className="text-gray text-[20px]">{contact.title}</h5>
+          <h3 className="text-gray text-[20px]">{contact.title}</h3>
           {contact.link ? (
             <a
               href={contact.link}
