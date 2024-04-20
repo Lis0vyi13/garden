@@ -1,1 +1,0 @@
-import{j as r}from"./index-DzIE85S_.js";import{P as e}from"./PageWrapper-Cuv-hJyi.js";import{C as o}from"./Categories-CSvyqYTS.js";const i=()=>r.jsx(e,{block:"categories",children:r.jsx(o,{})});export{i as default};
